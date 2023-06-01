@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./dist/index.js",
-    "build": "node ./dist/index.js",
+    "build": "node ./dist/index.js"
 
   },
   "dependencies": {
