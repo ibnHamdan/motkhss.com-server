@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./dist/index.js",
-    "test": "tsc && nodemon dist/index.js",
     "compile": "tsc && node ./dist/index.js",
     "dev": "nodemon -e ts  --exec \"npm run compile\""
   },
