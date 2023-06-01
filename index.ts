@@ -15,9 +15,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/test', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
-  const data: QueryPayload = { foo: 'bar' };
+  const data: QueryPayload = { foo: 'bar ..' };
   res.json(data);
 });
 

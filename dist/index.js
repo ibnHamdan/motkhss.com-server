@@ -12,8 +12,7 @@ app.get('/', function (req, res) {
     res.sendFile(path + 'index.html');
 });
 app.get('/test', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    const data = { foo: 'bar' };
+    const data = { foo: 'bar ..' };
     res.json(data);
 });
 app.listen(PORT, () => {
