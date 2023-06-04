@@ -1,6 +1,19 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+const corsOptions = {
+  origin: 'http://localhost:8080',
+};
+
+app.use(cors(corsOptions));
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 export interface QueryPayload {
   foo: string;
@@ -15,7 +28,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/test', (req, res) => {
-  const data: QueryPayload = { foo: 'bar ..' };
+  const data: QueryPayload = { foo: '=bar ...' };
   res.json(data);
 });
 
