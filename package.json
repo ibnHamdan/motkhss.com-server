@@ -4,7 +4,7 @@
    "main": "index.js",
    "license": "MIT",
    "scripts": {
-      "start": "node ./build/src/app.js",
+      "start": "pwd && ls &&  ts-node ./src/app.ts",
       "compile": "tsc && node ./build/src/app.js",
       "dev": "nodemon -e ts  --exec \"npm run compile\"",
       "dev2": "nodemon -e ts -w ./ -x nm run compile",
