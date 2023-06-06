@@ -4,8 +4,8 @@
    "main": "index.js",
    "license": "MIT",
    "scripts": {
-      "start": "ts-node src/app.ts",
-      "compile": "tsc && node ./dist/index.js",
+      "start": "node ./build/src/app.js",
+      "compile": "tsc && node ./build/src/app.js",
       "dev": "nodemon -e ts  --exec \"npm run compile\"",
       "dev2": "nodemon -e ts -w ./ -x nm run compile",
       "go": "ts-node-dev index.ts",
