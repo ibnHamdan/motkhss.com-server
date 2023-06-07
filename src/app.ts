@@ -4,7 +4,7 @@ import config from 'config';
 import validateEnv from './utils/validateEnv';
 import { AppDataSource } from './utils/data-source';
 import redisClient from './utils/connectRedis';
-
+console.log(process.env);
 AppDataSource.initialize()
   .then(async () => {
     // create express app
