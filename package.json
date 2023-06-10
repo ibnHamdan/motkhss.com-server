@@ -4,15 +4,9 @@
    "main": "index.js",
    "license": "MIT",
    "scripts": {
-      "start": "yarn migrate && yarn db:push && node ./build/src/app.js",
-      "build": "tsc -p .",
-      "migrate": "rm -rf build && yarn build && yarn typeorm migration:generate ./src/migrations/added-entity1 -d ./src/utils/data-source.ts",
-      "db:push": "rm -rf build && yarn build && yarn typeorm migration:run -d src/utils/data-source.ts",
-      "compile": "tsc && node ./build/src/app.js",
-      "dev": "nodemon -e ts  --exec \"npm run compile\"",
-      "dev2": "nodemon -e ts -w ./ -x nm run compile",
+
       "build": "tsc || ./node_modules/typescript/bin/tsc -p .",
-      "start": "yarn migrate && yarn db:push  && node ./build/src/app.js",
+      "start": "node ./build/src/app.js",
       "migrate": "rm -rf build && yarn build && yarn typeorm migration:generate ./src/migrations/added-entity1 -d ./src/utils/data-source.ts",
       "db:push": "rm -rf build && yarn build && yarn typeorm migration:run -d src/utils/data-source.ts",
       "compile": "tsc && node ./build/src/app.js",
