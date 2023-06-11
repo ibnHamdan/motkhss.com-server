@@ -1,6 +1,7 @@
 import { Entity, Column, Index, BeforeInsert } from 'typeorm';
 import Model from './model.entity';
 import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
 export enum RoleEnumType {
   USER = 'user',
   ADMIN = 'admin',
@@ -48,7 +49,23 @@ export class User extends Model {
     default: false,
   })
   verified: boolean;
+  @Index('verificationCode_index')
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
+  verificationCode!: string | null;
 
+  static createVerificationCode() {
+    const verificationCode = crypto.randomBytes(32).toString('hex');
+
+    const hashedVerificationCode = crypto
+      .createHash('sha256')
+      .update(verificationCode)
+      .digest('hex');
+
+    return { verificationCode, hashedVerificationCode };
+  }
   toJSON() {
     return { ...this, password: undefined, verified: undefined };
   }

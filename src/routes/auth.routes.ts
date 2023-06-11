@@ -4,6 +4,7 @@ import {
   logoutHandler,
   refreshAccessTokenHandler,
   registerUserHandler,
+  verifyEmailHandler,
 } from '../controllers/auth.controller';
 import { deserializeUser } from '../middleware/deserializeUser';
 import { requireUser } from '../middleware/requireUser';
@@ -12,6 +13,7 @@ import {
   createUserSchema,
   LoginUserInput,
   loginUserSchema,
+  verifyEmailSchema,
 } from '../schemas/user.schema';
 
 const router = express.Router();
@@ -31,5 +33,11 @@ router.get('/logout', deserializeUser, requireUser, logoutHandler);
 
 // refresh access token
 router.get('/refresh', refreshAccessTokenHandler);
+
+router.get(
+  '/verifyemail/:verificationCode',
+  validate(verifyEmailSchema),
+  verifyEmailHandler
+);
 
 export default router;

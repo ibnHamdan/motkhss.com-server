@@ -12,6 +12,8 @@ import AppError from './utils/appError';
 import authRouter from './routes/auth.routes';
 import userRouter from './routes/user.routes';
 
+import nodemailer from 'nodemailer';
+
 AppDataSource.initialize()
   .then(async () => {
     // Validate ENV
@@ -58,6 +60,11 @@ AppDataSource.initialize()
         next(new AppError(404, `Route ${req.originalUrl} not found`));
       }
     );
+
+    // (async function () {
+    //   const credentials = await nodemailer.createTestAccount();
+    //   console.log(credentials);
+    // })();
 
     // GLOBAL ERROR HANDLER
     app.use(
