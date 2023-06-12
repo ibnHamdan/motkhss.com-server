@@ -264,7 +264,11 @@ export const verifyEmailHandler = async (
   try {
     const verificationCode = crypto
       .createHash('sha256')
-      .update(req.params.verificationCode);
+      .update(req.params.verificationCode)
+      .digest('hex');
+    console.log('verifyEmailHandler', req.params.verificationCode, {
+      verificationCode,
+    });
     const user = await findUser({ verificationCode });
 
     if (!user) {
