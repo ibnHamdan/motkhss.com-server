@@ -21,6 +21,14 @@ AppDataSource.initialize()
     // create express app
     const app = express();
 
+    const path = __dirname + '/views/';
+    app.set('views', `${__dirname}/views/`);
+    console.log(`${__dirname}`);
+    app.use(express.static(path));
+    app.get('/', (req, res) => {
+      res.sendFile(path + 'index.html');
+    });
+
     // MIDDLEWARE
 
     // 1. Body parser
